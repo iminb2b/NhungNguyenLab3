@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 //import android.widget.Toolbar;
@@ -23,18 +24,19 @@ public class NhungActivity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhung);
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nhungNav_view);
         navigationView.setNavigationItemSelectedListener(this);
         drawerLayout = findViewById(R.id.drawerLayout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         if(savedInstanceState==null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NhHome()).commit();
-            navigationView.setCheckedItem(R.id.homeItem);
+            getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container, new NhHome()).commit();
+            navigationView.setCheckedItem(R.id.nhungHome);
         }
     }
     @Override
@@ -49,17 +51,18 @@ public class NhungActivity extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.homeItem:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NhHome()).commit();
+            case R.id.nhungHome:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NhHome()).commit();
                 break;
-            case R.id.teacherItem:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NguSet()).commit();
+            case R.id.nhungNhung:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NhuDown()).commit();
+
                 break;
-            case R.id.studentItem:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NhuDown()).commit();
+            case R.id.nhungNguyen:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NgSrv()).commit();
                 break;
-            case R.id.forumItem:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NgSrv()).commit();
+            case R.id.nhungSetting:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NguSet()).commit();
                 break;
 
         }
