@@ -5,7 +5,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 //import android.widget.Toolbar;
 import androidx.appcompat.widget.Toolbar;
@@ -45,9 +47,24 @@ public class NhungActivity extends AppCompatActivity implements NavigationView.O
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
             super.onBackPressed();
+
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browser);
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -62,7 +79,7 @@ public class NhungActivity extends AppCompatActivity implements NavigationView.O
                 getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NgSrv()).commit();
                 break;
             case R.id.nhungSetting:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NguSet()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container,new NhuSet()).commit();
                 break;
 
         }
