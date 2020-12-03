@@ -1,50 +1,46 @@
 <resources>
-    <string name="app_name">NhungLab3</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="courses">
-        <item>CENG 317</item>
-        <item>CENG 318</item>
-        <item>CENG 319</item>
-        <item>CENG 320</item>
-        <item>NEST 203</item>
-        <item>HESL 204</item>
+    <string name = "app_name"> NhungLab3 </string>
+    <string name = "navigation_drawer_open"> Ouvrir le tiroir de navigation </string>
+    <string name = "navigation_drawer_close"> Fermer le tiroir de navigation </string>
+    <string name = "hello_blank_fragment"> Bonjour fragment vierge </string>
+    <string-array name = "courses">
+        <item> CENG 317 </item>
+        <item> CENG 318 </item>
+        <item> CENG 319 </item>
+        <item> CENG 320 </item>
+        <item> NEST 203 </item>
+        <item> HESL 204 </item>
     </string-array>
-    <string name="defa">Default</string>
-    <string name="green">Green</string>
-    <string name="red">Red</string>
-    <string name="wait">Downloading.....Please wait</string>
-    <string name="pickadate">Please pick a date</string>
-    <string name="apply">Apply</string>
-    <string name="home">Home</string>
-    <string name="nhung">Nhung</string>
-    <string name="nguyen">Nguyen</string>
-    <string name="setting">Setting</string>
-    <string name="nhungnguyen">Nhung Nguyen</string>
-    <string name="stdid">N01274584</string>
-    <string-array name="items_name">
-        <item>Auto</item>
-        <item>Porttrait</item>
-        <item>Landscape</item>
+    <string name = "defa"> Par défaut </string>
+    <string name = "green"> Vert </string>
+    <string name = "red"> Vert </string>
+    <string name = "wait"> Téléchargement ..... Veuillez patienter </string>
+    <string name = "pickadate"> Veuillez choisir une date </string>
+    <string name = "apply"> Appliquer </string>
+    <string name = "home"> Accueil </string>
+    <string name = "nhung"> Nhung </string>
+    <string name = "nguyen"> Nguyen </string>
+    <string name = "setting"> Paramètre </string>
+    <string name = "nhungnguyen"> Nhung Nguyen </string>
+    <string name = "stdid"> N01274584 </string>
+    <string-array name = "items_name">
+        <item> Auto </item>
+        <item> Porttrait </item>
+        <item> Paysage </item>
     </string-array>
-    <string-array name="items_value">
-        <item>1</item>
-        <item>2</item>
+    <string-array name = "items_value">
+        <item> 1 </item>
+        <item> 2 </item>
     </string-array>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name = "messages_header"> Messages </string>
+    <string name = "sync_header"> Sync </string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name = "signature_title"> Votre signature </string>
+    <string name = "reply_title"> Action de réponse par défaut </string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name = "sync_title"> Synchroniser régulièrement les e-mails </string>
+    <string name = "attachment_title"> Télécharger les pièces jointes entrantes </string>
+    <string name = "attachment_summary_on"> Télécharger automatiquement les pièces jointes pour les e-mails entrants
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name = "attachment_summary_off"> Ne télécharger les pièces jointes que lorsque demandé manuellement </string>
 </resources>

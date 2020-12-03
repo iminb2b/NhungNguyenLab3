@@ -8,5 +8,5 @@
     <color name="colorBg3">#E4C4FF</color>
     <color name="colorBg4">#FCFFCB</color>
     <color name="colorBg5">#A8E1FF</color>
-
+    <color name="colorWhite">#FFF</color>
 </resources>
