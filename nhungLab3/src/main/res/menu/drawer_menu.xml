@@ -5,20 +5,23 @@
     <item
         android:id="@+id/nhungHome"
         android:title="@string/home"
-
+        android:icon="@drawable/ic_baseline_brightness_5_24"
         />
     <item
         android:id="@+id/nhungNhung"
         android:title="@string/nhung"
+        android:icon="@drawable/ic_baseline_eco_24"
         />
     <item
         android:id="@+id/nhungNguyen"
         android:title="@string/nguyen"
+        android:icon="@drawable/ic_baseline_filter_vintage_24"
         />
 
     <item
         android:id="@+id/nhungSetting"
         android:title="@string/setting"
+        android:icon="@drawable/ic_baseline_favorite_24"
         />
 
 

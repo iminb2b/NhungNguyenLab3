@@ -12,6 +12,8 @@
         <item>NEST 203</item>
         <item>HESL 204</item>
     </string-array>
+    <string name="pickadate">Please pick a date</string>
+    <string name="apply">Apply</string>
     <string name="home">Home</string>
     <string name="nhung">Nhung</string>
     <string name="nguyen">Nguyen</string>

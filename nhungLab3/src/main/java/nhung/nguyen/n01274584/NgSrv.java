@@ -1,12 +1,29 @@
 package nhung.nguyen.n01274584;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,11 +71,102 @@ public class NgSrv extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    EditText editTextNumberDecimal;
+    TextView txtDisplayZip;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.nh_srv, container, false);
+        View view = inflater.inflate(R.layout.nh_srv, container, false);
+        editTextNumberDecimal =  view.findViewById(R.id.editTextNumberDecimal);
+        txtDisplayZip = view.findViewById(R.id.txtDisplayZip);
+        new ReadJSONFeedTask().execute(
+                "http://extjs.org.cn/extjs/examples/grid/survey.html");
+        return view;
+    }
+    public void getWeather(View view)
+    {
+
+        String txt = editTextNumberDecimal.getText().toString();
+
+        //get weather information using geo coordinates
+        //this method calls OpenWeatherMap API
+        //
+        //create the URL to call JSON service
+        //"http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=13f04464b7119837cf1dc4fa8b39caa3");
+
+        String url = "https://samples.openweathermap.org/data/2.5/weather?zip=";
+        url+=txt;
+        url+=",us&appid";
+        Log.d("URL",url);
+        new ReadJSONFeedTask().execute(url);
+        //new ReadJSONFeedTask().execute(
+        //        "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=13f04464b7119837cf1dc4fa8b39caa3");
+
+
+    }
+
+
+    public String readJSONFeed(String address) {
+        URL url = null;
+        try {
+            url = new URL(address);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        };
+        StringBuilder stringBuilder = new StringBuilder();
+        HttpURLConnection urlConnection = null;
+        try {
+            urlConnection = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            InputStream content = new BufferedInputStream(
+                    urlConnection.getInputStream());
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(content));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            urlConnection.disconnect();
+        }
+        return stringBuilder.toString();
+    }
+    private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
+        protected String doInBackground(String... urls) {
+            return readJSONFeed(urls[0]);
+        }
+        protected void onPostExecute(String result) {
+            try {
+                //JSONArray jsonArray = new JSONArray(result);
+                //Uncomment the two rows below to parse weather data from OpenWeatherMap
+                JSONObject zipJson = new JSONObject(result);
+                JSONArray dataArray1= zipJson.getJSONArray("zip");
+                String strResults="Address\n";
+                for (int i = 0; i < dataArray1.length(); i++) {
+                    JSONObject jsonObject = dataArray1.getJSONObject(i);
+                    strResults +="coord: "+jsonObject.getString("coord");
+                    strResults +="\nmain: "+jsonObject.getString("main");
+                    strResults +="\nname: "+jsonObject.getString("name");
+                    strResults +="\ncod: "+jsonObject.getString("code");
+                }
+                //
+                JSONObject dataObject= zipJson.getJSONObject("main");
+                strResults +="\ntemp: "+dataObject.getString("temp");
+                strResults +="\nhumidity: "+dataObject.getString("humidity");
+                strResults +="\ntemp_min: "+dataObject.getString("temp_min");
+                strResults +="\ntemp_max: "+dataObject.getString("temp_max");
+                //
+                txtDisplayZip.setText(strResults);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -1,12 +1,18 @@
 package nhung.nguyen.n01274584;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.ComponentCallbacks;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.provider.Settings;
@@ -156,8 +162,11 @@ public class NhuSet extends Fragment {
         LinearLayout ln = v.findViewById(R.id.fragment);
         if(bg.equals("Green")) {
             ln.setBackgroundColor(Color.GREEN);
-        }else if(bg.equals("Pink")){
+        }else if(bg.equals("Red")){
             ln.setBackgroundColor(Color.RED);
+        }else{
+            ln.setBackgroundColor(Color.WHITE);
+
         }
         Context context = getContext();
         boolean canWrite = Settings.System.canWrite(context);
@@ -172,6 +181,6 @@ public class NhuSet extends Fragment {
             Intent intent = new Intent (Settings.ACTION_MANAGE_WRITE_SETTINGS);
             context.startActivity(intent);
         }
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//
     }
 }

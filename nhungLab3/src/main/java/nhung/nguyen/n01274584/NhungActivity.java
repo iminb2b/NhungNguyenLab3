@@ -1,10 +1,14 @@
 package nhung.nguyen.n01274584;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -40,6 +44,8 @@ public class NhungActivity extends AppCompatActivity implements NavigationView.O
             getSupportFragmentManager().beginTransaction().replace(R.id.nhungFragment_container, new NhHome()).commit();
             navigationView.setCheckedItem(R.id.nhungHome);
         }
+
+
     }
     @Override
     public void onBackPressed(){
