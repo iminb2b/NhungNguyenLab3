@@ -85,7 +85,7 @@ public class NhuDown extends Fragment {
             public void onClick(View v) {
 
                 AsyncTaskExample asyncTask=new AsyncTaskExample();
-                asyncTask.execute("https://www.tutorialspoint.com/images/tp-logo-diamond.png");
+                asyncTask.execute("https://i.pinimg.com/originals/d5/4d/d3/d54dd30d97cfe54fa2710e640a6b1652.jpg");
             }
         });
         return view;
@@ -95,7 +95,7 @@ public class NhuDown extends Fragment {
         Handler handle = new Handler() {
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-               // p.incrementProgressBy(50); // Incremented By Value 2
+                p.incrementProgressBy(50); // Incremented By Value 2
             }
         };
         @Override
@@ -104,7 +104,7 @@ public class NhuDown extends Fragment {
 
             p=new ProgressDialog(getActivity());
             p.setMax(100);
-            p.setMessage("Please wait...It is downloading");
+
             p.setIndeterminate(false);
             p.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             p.setCancelable(false);

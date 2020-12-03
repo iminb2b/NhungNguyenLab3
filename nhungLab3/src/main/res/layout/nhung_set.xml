@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/fragment"
-    android:background="@color/colorBg5"
     tools:context=".NhuSet">
 
     <!-- TODO: Update blank fragment layout -->
@@ -22,17 +21,17 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Default"
+            android:text="@string/defa"
             android:layout_marginLeft="20dp"></RadioButton>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Green"
+            android:text="@string/green"
             android:layout_marginLeft="20dp"></RadioButton>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pink"
+            android:text="@string/red"
             android:layout_marginLeft="20dp"></RadioButton>
     </RadioGroup>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
